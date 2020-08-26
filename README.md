@@ -5,9 +5,9 @@
 | Column             | Type   | Options                  |
 | ------------------ | ------ | ------------------------ |
 | nickname           | string | null: false              |
-| email              | string | null: false, default: "" |
-| password           | string | null: false, default: "" |
-| encrypted_password | string | null: false, default: "" |
+| email              | string | null: false              |
+| password           | string | null: false              |
+| encrypted_password | string | null: false              |
 | first_name         | string | null: false              |
 | last_name          | string | null: false              |
 | first_name_reading | string | null: false              |
