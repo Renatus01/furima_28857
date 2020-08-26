@@ -7,6 +7,7 @@
 | nickname           | string | null: false              |
 | email              | string | null: false, default: "" |
 | password           | string | null: false, default: "" |
+| encrypted_password | string | null: false, default: "" |
 | first_name         | string | null: false              |
 | last_name          | string | null: false              |
 | first_name_reading | string | null: false              |
