@@ -6,13 +6,19 @@ class User < ApplicationRecord
 
 
   with_options presence: true do
-    validates :email,              format: { with: /@.+/,                                  message: "は@を含めて入力してください。"}
-    validates :first_name,         format: { with: /\A[ぁ-んァ-ン一-龥]/,                    message: "は全角で入力してください。"}
-    validates :last_name,          format: { with: /\A[ぁ-んァ-ン一-龥]/,                    message: "は全角で入力してください。"}
-    validates :first_name_reading, format: { with: /\A[ァ-ヶー－]+\z/,                       message: "は全角カタカナで入力して下さい。"}
-    validates :last_name_reading,  format: { with: /\A[ァ-ヶー－]+\z/,                       message: "は全角カタカナで入力して下さい。"}
-    validates :password,           format: { with: /greater_than_or_equal_to: 6/,           message: "は6文字以上で入力してください。"}
-    validates :password,           format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,  message: "は半角英数字で入力してください。"}
+    validates :nickname
+    with_options                   format: { with: /\A[ぁ-んァ-ン一-龥]/,                    message: "は全角で入力してください。"} do
+      validates :first_name
+      validates :last_name
+    end
+    with_options                   format: { with: /\A[ァ-ヶー－]+\z/,                       message: "は全角カタカナで入力して下さい。"} do
+      validates :first_name_reading
+      validates :last_name_reading
+    end
+    validates :birthday
   end
+
+    # validates :password,           format: { with: /greater_than_or_equal_to: 6/,           message: "は6文字以上で入力してください。"}
+    validates :password,           format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,  message: "は半角英数字で入力してください。"}
 
 end
