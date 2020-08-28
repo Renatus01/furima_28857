@@ -8,7 +8,6 @@ FactoryBot.define do
     last_name              {"太郎"}
     first_name_reading     {"ヤマダ"}
     last_name_reading      {"タロウ"} 
-    # birthday               {"1930-1-1"} 
     birthday               {Faker::Date.between(from: '1930-01-01', to: '2015-12-31')}
 
   end

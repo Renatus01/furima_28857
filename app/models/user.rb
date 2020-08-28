@@ -18,7 +18,6 @@ class User < ApplicationRecord
     validates :birthday
   end
 
-    # validates :password,           format: { with: /greater_than_or_equal_to: 6/,           message: "は6文字以上で入力してください。"}
     validates :password,           format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,  message: "は半角英数字で入力してください。"}
 
 end
