@@ -6,7 +6,6 @@
 | ------------------ | ------ | ------------------------ |
 | nickname           | string | null: false              |
 | email              | string | null: false              |
-| password           | string | null: false              |
 | encrypted_password | string | null: false              |
 | first_name         | string | null: false              |
 | last_name          | string | null: false              |
@@ -17,22 +16,22 @@
 
 ### Association
 
-- has_many :products
+- has_many :items
 - has_many :purchases
 
 
-## products テーブル
+## items テーブル
 
 | Column       | Type       | Options                       |
 | ------------ | ---------- | ----------------------------- |
-| product      | string     | null: false                   |
+| item         | string     | null: false                   |
 | explanation  | text       | null: false                   |
 | price        | integer    | null: false                   |
 | category_id  | integer    | null: false                   |
 | status_id    | integer    | null: false                   |
 | delivery_id  | integer    | null: false                   |
 | area_id      | integer    | null: false                   |
-| days_id      | integer    | null: false                   |
+| day_id       | integer    | null: false                   |
 | user         | references | null: false,foreign_key: true |
 
 
@@ -52,7 +51,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
 - has_one    :address
 
 ## addresses テーブル
