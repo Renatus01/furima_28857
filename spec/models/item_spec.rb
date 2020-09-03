@@ -13,6 +13,10 @@ RSpec.describe Item, type: :model do
         it "item,explanation,price,image,category_id,status_id,delivery_id,area_id,day_id,user_id が存在すれば登録できること" do 
           expect(@item).to be_valid
         end
+
+        it "価格の範囲が¥300~¥9,999,999の間であること" do 
+          expect(@item.price).to be_valid
+        end
       end
 
       context '商品出品機能がうまくいかないとき' do
