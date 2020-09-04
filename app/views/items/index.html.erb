@@ -121,68 +121,65 @@
   <%# //FURIMAの特徴 %>
 
   <%# 商品一覧 %>
-  
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', new_item_path , class: "subtitle" %>
-    <% if @item = true %>
     <ul class='item-lists'>
-        <div class="content_item" >
-          <% @items.each do |item| %>
+      <% if @item = true %>
+        <% @items.each do |item| %>
           <li class='list'>
-          <%= link_to items_path(item) do %>
-            <div class='item-img-content'>
-              <%= image_tag item.image , class: "item-img" %>
-              <%# 商品が売れていればsold outの表示 %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
+            <%= link_to items_path(item) do %>
+              <div class='item-img-content'>
+                <%= image_tag item.image , class: "item-img" %>
+                  <%# 商品が売れていればsold outの表示 %>
+                  <div class='sold-out'>
+                    <span>Sold Out!!</span>
+                  </div>
+                  <%# //商品が売れていればsold outの表示 %>
               </div>
-              <%# //商品が売れていればsold outの表示 %>
-            </div>
-            <div class='item-info'>
-              <h3 class='item-name'>
-                <%= item.item %>
-              
-              </h3>
-              <div class='item-price'>
-                <span><%= item.price %>円<br>(税込み)</span>
-            
-                <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
-                </div>
+              <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= item.item %>
+                  </h3>
+
+                  <div class='item-price'>
+                    <span><%= item.price %>円<br>(税込み)</span>
+                  </div>
+
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </li>
         <% end %>
-      </li>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
 
       <%# 商品がない場合のダミー %>
       <%  else %>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
-            <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+        <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              商品を出品してね！
+            </h3>
+            <div class='item-price'>
+              <span>99999999円<br>(税込み)</span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
             </div>
           </div>
-        </div>
-        <% end %>
-        <% end %> 
-      </li>
+          <% end %>
+        </li>
+      <% end %> 
     </ul>
-
   </div>
   <%# //商品一覧 %>
 </div>
+
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
     <% if user_signed_in? %>
