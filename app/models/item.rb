@@ -1,6 +1,15 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
+  belongs_to             :user
+  has_one                :order
+  has_one_attached       :image
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :area
+  belongs_to_active_hash :day
+
   with_options presence: true do
     validates :item
     validates :explanation
@@ -15,14 +24,4 @@ class Item < ApplicationRecord
       validates :day_id
     end
   end
-
-  belongs_to :user
-  has_one    :purchase
-  has_one_attached :image
-
-  belongs_to_active_hash :category
-  belongs_to_active_hash :status
-  belongs_to_active_hash :delivery
-  belongs_to_active_hash :area
-  belongs_to_active_hash :day
 end
