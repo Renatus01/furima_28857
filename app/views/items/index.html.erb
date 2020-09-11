@@ -125,7 +125,7 @@
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', new_item_path , class: "subtitle" %>
     <ul class='item-lists'>
-      <% if @item = true %>
+      <% if @item != nil %>
         <% @items.each do |item| %>
           <li class='list'>
             <%= link_to item_path(item.id), method: :get do %>
@@ -137,7 +137,7 @@
                   <div class='sold-out'>
                     <span>Sold Out!!</span>
                   </div>
-                   <% end %>
+                  <% end %>
                   
               </div>
               <div class='item-info'>
