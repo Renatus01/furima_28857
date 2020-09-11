@@ -61,7 +61,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'phone_numberがハイフンを含まない番号でないと保存できないこと' do
-        @order.phone_number = '123-456-789'
+        @order.phone_number = '090-1234-5678'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Phone number is invalid. Not included hyphen(-)')
+      end
+
+      it 'phone_numberが12桁以上だと保存できないこと' do
+        @order.phone_number = '090123456789'
         @order.valid?
         expect(@order.errors.full_messages).to include('Phone number is invalid. Not included hyphen(-)')
       end
