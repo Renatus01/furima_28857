@@ -8,7 +8,7 @@ class OrderAddress
     validates :prefecture_id,    numericality: { other_than: 1,             message: 'Select' }
     validates :city
     validates :house_number
-    validates :phone_number, format: { with: /\A\d{11}\z/, message: 'is invalid. Not included hyphen(-)' }
+    validates :phone_number,     format:       { with: /\A\d{11}\z/,        message: 'is invalid. Not included hyphen(-)' }
   end
 
   def save
